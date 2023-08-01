@@ -6,6 +6,26 @@ const ejs = require('ejs')
 const MYPORT = process.env.PORT || 3600
 const jwt = require('jsonwebtoken')
 const cors = require("cors")
+const mongoose = require('mongoose')
+
+mongoose.connect("mongodb+srv://97nitesh85:17G0uxWgfeP7Zix0@cluster0.hkdjpts.mongodb.net/new",{
+    useNewUrlParser:true,
+    useUnifiedTopology:true
+}).then(()=>{console.log("mongodb connect")}).catch(()=>{console.log("not connect mongodb")})
+
+const userschema = new mongoose.Schema({
+    name:String,
+    city:String,
+    email:String,
+    password:String
+})
+
+const usermodel = new mongoose.model("User",userschema)
+
+async function insertdata(){
+    await usermodel.insertMany([data,data1,data2])
+    console.log("successfull");
+}
 
 app.use(cors())
 app.set("view engine","ejs")
@@ -18,13 +38,11 @@ app.post("/getdata",(req,res)=>{
     res.json({message:'cookie set successfully'})
 })
 
-app.get("/",(req,res)=>{
+
+app.get("/",async(req,res)=>{
     res.cookie("jwttoken","jwttokenvalueinwhichpasswordissaved",{maxAge:8600000000})
-    res.status(201).json({
-        name:"nitesh kumar prajapat",
-        city:"jaipur",
-        email:"nitesh@gmail.com"
-    })
+    const usres = await usermodel.find()
+    res.send(usres)
 })
 
 app.get("/user",(req,res)=>{

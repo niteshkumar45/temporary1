@@ -4,6 +4,8 @@ const express = require('express')
 const app = express()
 const MYPORT = process.env.PORT || 3600
 
+app.set("view engine","ejs")
+
 app.get("/",(req,res)=>{
     res.status(201).json({
         name:"nitesh kumar prajapat",
@@ -22,6 +24,10 @@ app.get("/about",(req,res)=>{
     res.status(201).json({
         content:"this is my about page of this website"
     })
+})
+
+app.get("/ejs",(req,res)=>{
+    res.render('index',{data:"this is data send from the backend"})
 })
 
 app.listen(3200,()=>{

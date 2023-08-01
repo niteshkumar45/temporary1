@@ -18,6 +18,11 @@ app.get("/user",(req,res)=>{
     })
 })
 
+app.get("/about",(req,res)=>{
+    res.status(201).json({
+        content:"this is my about page of this website"
+    })
+})
 
 app.listen(3200,()=>{
     console.log("the server is started ");

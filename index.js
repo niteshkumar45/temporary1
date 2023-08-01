@@ -19,7 +19,7 @@ app.post("/getdata",(req,res)=>{
 })
 
 app.get("/",(req,res)=>{
-    res.cookie("cookiename","thisisvalueofcookie",{maxAge:"2d"})
+    res.cookie("cookiename","thisisvalueofcookie",{maxAge:8600000000})
     res.status(201).json({
         name:"nitesh kumar prajapat",
         city:"jaipur",

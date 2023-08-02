@@ -40,9 +40,7 @@ app.post("/getdata",(req,res)=>{
 
 
 app.get("/",async(req,res)=>{
-    res.cookie("jwttoken","jwttokenvalueinwhichpasswordissaved",{maxAge:8600000000})
-    const usres = await usermodel.find()
-    res.status(201).json({data:usres})
+    res.status(201).json({data:"fdfdf"})
 })
 
 app.get("/user",(req,res)=>{

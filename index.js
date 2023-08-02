@@ -28,8 +28,6 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 
 app.get("/",async(req,res)=>{
-    // const usres = await usermodel.find()
-    // console.log("usres is ",usres);
     res.status(201).json({data:"kl;sdkfk;s"})
 })
 

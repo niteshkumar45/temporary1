@@ -33,6 +33,11 @@ app.get("/",async(req,res)=>{
     res.status(201).json({user:"le tera data"})
 })
 
+app.get("/user",async (req,res)=>{
+    const user = await usermodel.find()
+    res.status(201).json({user:user})
+})
+
 app.listen(3200,()=>{
     console.log("the server is started ");
 })

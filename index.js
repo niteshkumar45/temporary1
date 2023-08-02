@@ -29,7 +29,45 @@ app.use(express.json())
 
 app.get("/",async(req,res)=>{
     // const usres = await usermodel.find()
-    res.status(201).json({data:"usres"})
+    // console.log("usres is ",usres);
+    res.status(201).json({data:[
+        {
+          _id: new ObjectId("64c9b35b50e004047a32bf6c"),
+          name: 'nitesh',
+          city: 'jaipur',
+          __v: 0
+        },
+        {
+          _id: new ObjectId("64c9b35b50e004047a32bf6d"),
+          name: 'kan',
+          city: 'bharatpur',
+          __v: 0
+        },
+        {
+          _id: new ObjectId("64c9b35b50e004047a32bf6e"),
+          name: 'banti',
+          city: 'jaipur',
+          __v: 0
+        },
+        {
+          _id: new ObjectId("64c9b38ac80cf435c5867023"),
+          name: 'rampal',
+          city: 'tonk',
+          __v: 0
+        },
+        {
+          _id: new ObjectId("64c9b38ac80cf435c5867024"),
+          name: 'vishnu',
+          city: 'dilli',
+          __v: 0
+        },
+        {
+          _id: new ObjectId("64c9b38ac80cf435c5867025"),
+          name: 'hariom',
+          city: 'rampura',
+          __v: 0
+        }
+      ]})
 })
 
 app.listen(3200,()=>{

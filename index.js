@@ -28,12 +28,7 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 
 app.get("/",async(req,res)=>{
-    try{
-        const users = await usermodel.find()
-        res.status(201).json({data:users})
-    }catch{
-        res.status(201).json({data:[{name:"nitseh"},{name:"kana"},{catch:"this is in the catch"}]})
-    }
+    res.status(201).json({data:[{name:"nitseh"},{name:"kana"}]})
 })
 
 app.listen(3200,()=>{

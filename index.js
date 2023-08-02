@@ -28,8 +28,8 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 
 app.get("/",async(req,res)=>{
-    const usres = await usermodel.find()
-    res.status(201).json({data:usres})
+    // const usres = await usermodel.find()
+    res.status(201).json({data:"usres"})
 })
 
 app.listen(3200,()=>{

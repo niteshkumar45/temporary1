@@ -28,7 +28,7 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 
 app.get("/",async(req,res)=>{
-    res.status(201).json({data:"kl;sdkfk;s"})
+    res.status(201).json({data:[{name:"nitseh"},{name:"kana"}]})
 })
 
 app.listen(3200,()=>{

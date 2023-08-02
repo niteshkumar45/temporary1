@@ -1,28 +1,33 @@
-const mongoose = require("mongoose")
+const mongoose = require('mongoose')
 
-mongoose.connect("mongodb+srv://97nitesh85:17G0uxWgfeP7Zix0@cluster0.hkdjpts.mongodb.net/?retryWrites=true&w=majority",{
+mongoose.connect("mongodb+srv://97nitesh85:lBQpQbIWKv8CsCWn@cluster0.soys12h.mongodb.net/",{
     useNewUrlParser:true,
     useUnifiedTopology:true
 }).then(()=>{console.log("mongodb connect")}).catch(()=>{console.log("not connect mongodb")})
 
 const userschema = new mongoose.Schema({
     name:String,
-    city:String,
-    email:String,
-    password:String
+    city:String
 })
 
 const usermodel = new mongoose.model("User",userschema)
 
-const data = {
-    name:"nitesh",
-    city:"jaipur",
-    email:"nitesh@gmailc.om",
-    password:"oasfdhhdf"
+const data1 = {
+    name:"rampal",
+    city:"tonk"
+}
+const data2 = {
+    name:"vishnu",
+    city:"dilli"
+}
+const data3 = {
+    name:"hariom",
+    city:"rampura"
 }
 
-async function insertdata(){
-    await usermodel.insertMany([data])
-    console.log("insertdata");
+async function insert(){
+    await usermodel.insertMany([data1,data2,data3])
+    console.log("data inserted");
 }
-insertdata()
+
+insert()

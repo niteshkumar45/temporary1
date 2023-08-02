@@ -8,7 +8,7 @@ const jwt = require('jsonwebtoken')
 const cors = require("cors")
 const mongoose = require('mongoose')
 
-mongoose.connect("mongodb+srv://97nitesh85:17G0uxWgfeP7Zix0@cluster0.hkdjpts.mongodb.net/new",{
+mongoose.connect("mongodb+srv://97nitesh85:lBQpQbIWKv8CsCWn@cluster0.soys12h.mongodb.net/",{
     useNewUrlParser:true,
     useUnifiedTopology:true
 }).then(()=>{console.log("mongodb connect")}).catch(()=>{console.log("not connect mongodb")})
@@ -22,41 +22,14 @@ const userschema = new mongoose.Schema({
 
 const usermodel = new mongoose.model("User",userschema)
 
-async function insertdata(){
-    await usermodel.insertMany([data,data1,data2])
-    console.log("successfull");
-}
-
 app.use(cors())
 app.set("view engine","ejs")
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 
-app.post("/getdata",(req,res)=>{
-    console.log("req.body is ",req.body);
-    res.cookie("cookie name","cookie_description",{maxAge:86000000,httpOnly:true})
-    res.json({message:'cookie set successfully'})
-})
-
-
 app.get("/",async(req,res)=>{
-    res.status(201).json({data:"fdfdf"})
-})
-
-app.get("/user",(req,res)=>{
-    res.status(201).json({
-        content:"hello world"
-    })
-})
-
-app.get("/about",(req,res)=>{
-    res.status(201).json({
-        content:"this is my about page of this website"
-    })
-})
-
-app.get("/ejs",(req,res)=>{
-    res.render('index',{data:"this is data send from the backend"})
+    const usres = await usermodel.find()
+    res.status(201).json({data:usres})
 })
 
 app.listen(3200,()=>{

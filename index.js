@@ -7,6 +7,7 @@ const MYPORT = process.env.PORT || 3600
 const jwt = require('jsonwebtoken')
 const cors = require("cors")
 const mongoose = require('mongoose')
+const mongodb = require('mongodb')
 
 mongoose.connect("mongodb+srv://97nitesh85:lBQpQbIWKv8CsCWn@cluster0.soys12h.mongodb.net/",{
     useNewUrlParser:true,
@@ -28,8 +29,8 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 
 app.get("/",async(req,res)=>{
-    const data = await usermodel.find()
-    res.status(201).json({user:data})
+    // const data = await usermodel.find()
+    res.status(201).json({user:"le tera data"})
 })
 
 app.listen(3200,()=>{

@@ -28,6 +28,7 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 
 app.get("/",async(req,res)=>{
+    const users = await usermodel.find()
     res.status(201).json({data:[{name:"nitseh"},{name:"kana"}]})
 })
 

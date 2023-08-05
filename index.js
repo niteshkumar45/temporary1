@@ -7,7 +7,8 @@ const cors = require("cors")
 const mongoose = require('mongoose')
 const options = {
     useNewUrlParser:true,
-    useUnifiedTopology:true
+    useUnifiedTopology:true,
+    connectTimeoutMS: 10000
 }
 const mongodb = require('mongodb')
 // 97nitesh85 AkBObPN8FnW4MPEl 

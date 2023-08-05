@@ -23,7 +23,7 @@ const usermodel = new mongoose.model("User",userschema)
 app.use(cors())
 
 app.get("/",(req,res)=>{
-    res.status(201).json({message:"homepage"})
+    res.status(201).json({message:"homepage change"})
 })
 
 app.get("/user",async (req,res)=>{
